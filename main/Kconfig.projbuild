@@ -1,0 +1,70 @@
+menu "HCS-ESP32-Beacon-Sensor-Node config"
+
+config WIFI_SSID
+    string "WiFi SSID"
+	default "myssid"
+	help
+		SSID (network name) for the example to connect to.
+
+config WIFI_PASSWORD
+    string "WiFi Password"
+	default "myssid"
+	help
+		WiFi password (WPA or WPA2) for the example to use.
+
+		Can be left blank if the network has no security set.
+
+config MQTT_BROKER_HOST
+    string "MQTT broker host"
+	default "mqtt-broker"
+	help
+		Put the ip adress of the mqtt broker here.
+
+config MQTT_BROKER_PORT_UNENCRYPTED
+    int "MQTT broker port"
+    range 1 65535
+	default 1883
+	help
+		the TCP port to connect to the mqtt broker (unencrypted)
+
+config MQTT_BROKER_PORT_ENCRYPTED
+    int "MQTT broker port"
+    range 1 65535
+	default 8883
+	help
+		the TCP port to connect to the mqtt broker (encrypted)
+
+config MQTT_BROKER_USERNAME
+    string "MQTT broker user name"
+	default "user"
+	help
+		The username to authenticate with.
+
+config MQTT_BROKER_PASSWORD
+    string "MQTT broker password"
+	default "password"
+	help
+		the password to authenticate with.
+
+config MQTT_BROKER_CLIENT_ID
+	string "MQTT broker client id"
+	default "beacon_sensor_node_1"
+	help
+		put this sensor nodes unique id here.
+
+config INDOOR_LOCATION_PUBLISH_TOPIC
+    string "MQTT topic prefix"
+	default "/indoorlocation/"
+	help
+		MQTT topic prefix to publish sensor data to.
+		MUST end with /
+
+config INDOOR_LOCATION_LWT_TOPIC
+    string "MQTT last will topic"
+	default "/indoorlocation/beacon_sensor_node_1/lwt"
+	help
+		MQTT topic prefix to publish the last will and testament to.
+		MUST end with /
+
+
+endmenu
